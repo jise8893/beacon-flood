@@ -1,5 +1,5 @@
 #include "beacon.h"
-void BeaconPacket::setpacket(BeaconPacket* BeaconPacket){
+void BeaconPacket::Setpacket(BeaconPacket* BeaconPacket){
     BeaconPacket->radiotapheader.it_len=8;
     BeaconPacket->dot11frame.framecontrol.protocol=0;
     BeaconPacket->dot11frame.framecontrol.type=FrameControl::Type::Management;

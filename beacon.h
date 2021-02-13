@@ -23,7 +23,7 @@
 class BeaconPacket{
 public:
     BeaconPacket();
-    static void setpacket(BeaconPacket* BeaconPacket);
+    static void Setpacket(BeaconPacket* BeaconPacket);
     static void Ssidtag(uint8_t *data,char *line);
     static void Rsntag(uint8_t *data,uint8_t len);
     static void Supported(uint8_t *data ,uint8_t len);

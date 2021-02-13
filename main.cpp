@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
                     BeaconPacket * Bp;
                     uint8_t *data=new uint8_t[sizeof(BeaconPacket)+itr->size+sizeof(Rsn)+sizeof(Supportag)+sizeof(Dstag)];
                     Bp=(BeaconPacket *)(data);
-                    BeaconPacket::setpacket(Bp);
+                    BeaconPacket::Setpacket(Bp);
                     BeaconPacket::Ssidtag(data,itr->line);
                     BeaconPacket::Supported(data,sizeof(BeaconPacket)+itr->size);
                     BeaconPacket::Dstagset(data,sizeof(BeaconPacket)+itr->size+sizeof(Supportag));
@@ -54,12 +54,13 @@ int main(int argc, char *argv[])
                     int res=pcap_sendpacket(handle,reinterpret_cast<const u_char*>(data),sizeof(BeaconPacket)+itr->size+sizeof(Rsn)+sizeof(Supportag)+sizeof(Dstag));
                     if(res!=0){
                         fprintf(stderr,"pcap_send packet return %d error=%s\n",res,pcap_geterr(handle));
+                        pcap_close(handle);
                         return -1;
                     }
                     free(data);
-
                 }
             }
+            pcap_close(handle);
             break;
       default:
         usage();

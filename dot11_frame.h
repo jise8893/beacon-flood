@@ -10,8 +10,8 @@ public:
     FrameControl framecontrol;//check frame to ds or from ds
     uint16_t duration_id;
     Mac address_1=Mac("ff:ff:ff:ff:ff:ff"); //receiver address or destination
-    Mac address_2=Mac("11:22:33:44:55:66"); //transmitter or source address
-    Mac address_3=Mac("11:22:33:44:55:66"); // bssid address
+    Mac address_2=Mac("70:5d:cc:04:2b:a2"); //transmitter or source address
+    Mac address_3=Mac("70:5d:cc:04:2b:a2"); // bssid address
     uint16_t sequence_control=0x6ca0;
 
 
